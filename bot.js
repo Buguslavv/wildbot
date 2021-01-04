@@ -46,6 +46,9 @@ function gotMessage(msg) {
 	else if (msg.content === '!gocha') {
 		msg.channel.send('Team Gocha!');
 	}
+	else if (msg.content === '!maslo') {
+		msg.channel.send('Team masło!');
+	}
 	else if (msg.content === '!aris') {
 		msg.channel.send('Czy ktoś tu ma niedobór przytulania? Aris tu jest żeby wyściskać wszystkie swoje dzieci!');
 	}
