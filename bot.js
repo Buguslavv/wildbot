@@ -34,5 +34,17 @@ function gotMessage(msg) {
 	else if (msg.content === '!nagimiban') {
 		msg.channel.send('Nagimi has been permanently banned from this channel.');
 	}
+	else if (msg.content === '!myszon') {
+		msg.channel.send('Chowajcie swoje ciasteczka, nadchodzi on! Pożeracz wszystkiego słodkiego i mięsnego.');
+	}
+	else if (msg.content === '!bbo') {
+		msg.channel.send('Szykuj wodę! Nadszedł naczelny nawadniacz dzikiej rodziny.');
+	}
+	else if (msg.content === '!rafal') {
+		msg.channel.send('Team Rafał!');
+	}
+	else if (msg.content === '!gocha') {
+		msg.channel.send('Team Gocha!');
+	}
 	console.log(msg.content);
 }
