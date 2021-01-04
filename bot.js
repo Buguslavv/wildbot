@@ -17,7 +17,7 @@ const replies = [
 	'Karp to najlepsza ryba!',
 	'To prawda, karp jest rybą i nikt temu nie zaprzeczy. Nawet maruda Wilu.',
 	'Karp jest rybą!',
-	'Karp to ryba'
+	'Karp to ryba.'
 ]
 
 function gotMessage(msg) {
@@ -45,6 +45,9 @@ function gotMessage(msg) {
 	}
 	else if (msg.content === '!gocha') {
 		msg.channel.send('Team Gocha!');
+	}
+	else if (msg.content === '!aris') {
+		msg.channel.send('Czy ktoś tu ma niedobór przytulania? Aris tu jest żeby wyściskać wszystkie swoje dzieci!');
 	}
 	console.log(msg.content);
 }
