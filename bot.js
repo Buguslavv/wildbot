@@ -64,7 +64,7 @@ function gotMessage(msg) {
 	}
 	else if (msg.content === '!pastakarp') {
 		var pastaTime = new Date();
-		if (pastaTime.getTime() - pastaCooldown.getTime() > 60000) {
+		if (pastaTime.getTime() - pastaCooldown.getTime() > 10000) {
 			pastaCooldown = pastaTime;
 			fs.readFile('fanatyk-karpi.txt', 'utf8', function(err,data) {
 				if (err) {
@@ -72,7 +72,7 @@ function gotMessage(msg) {
 				}
 				
 				const messages = data.split(';');
-				messages.foreach(message => msg.channel.send(message));
+				messages.forEach(message => msg.channel.send(message));
 			});
 		}
 	}
