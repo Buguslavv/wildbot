@@ -72,7 +72,7 @@ function gotMessage(msg) {
 				}
 				
 				msg.channel.send(data);
-			}
+			});
 		}
 	}
 	console.log(msg.content);
