@@ -27,7 +27,7 @@ const gochaReplies = [
 	'OHHHHHHHHH KITTTYYYYYYYYYYYY'
 ]
 
-var pastaCooldown = Date.now();
+var pastaCooldown = new Date();
 
 function gotMessage(msg) {
 	if (msg.content === '!karp') {
