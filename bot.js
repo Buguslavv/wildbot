@@ -1,5 +1,6 @@
 ﻿const Discord = require('discord.js');
 const client = new Discord.Client();
+const fs = require('fs');
 
 require('dotenv').config();
 
@@ -25,6 +26,8 @@ const gochaReplies = [
 	'LULULULULULULULULULULU',
 	'OHHHHHHHHH KITTTYYYYYYYYYYYY'
 ]
+
+var pastaCooldown = Date.now();
 
 function gotMessage(msg) {
 	if (msg.content === '!karp') {
@@ -58,6 +61,19 @@ function gotMessage(msg) {
 	}
 	else if (msg.content === '!aris') {
 		msg.channel.send('Czy ktoś tu ma niedobór przytulania? Aris tu jest żeby wyściskać wszystkie swoje dzieci!');
+	}
+	else if (msg.content === '!pastakarp') {
+		var pastaTime = new Date();
+		if (pastaTime.getTime() - pastaCooldown.getTime() > 60000) {
+			pastaCooldown = pastaTime;
+			fs.readFile('fanatyk-karpi.txt', 'utf8', function(err,data) {
+				if (err) {
+					return console.log(err);
+				}
+				
+				msg.channel.send(data);
+			}
+		}
 	}
 	console.log(msg.content);
 }
