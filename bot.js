@@ -64,7 +64,7 @@ function gotMessage(msg) {
 	}
 	else if (msg.content === '!pastakarp') {
 		var pastaTime = new Date();
-		if (pastaTime.getTime() - pastaCooldown.getTime() > 10000) {
+		if (pastaTime.getTime() - pastaCooldown.getTime() > 60000) {
 			pastaCooldown = pastaTime;
 			fs.readFile('fanatyk-karpi.txt', 'utf8', function(err,data) {
 				if (err) {
