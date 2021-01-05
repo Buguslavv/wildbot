@@ -71,7 +71,8 @@ function gotMessage(msg) {
 					return console.log(err);
 				}
 				
-				msg.channel.send(data);
+				const messages = data.split(';');
+				messages.foreach(message => msg.channel.send(message));
 			});
 		}
 	}
