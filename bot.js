@@ -13,17 +13,23 @@ function redyDiscord() {
 
 client.on('message', gotMessage);
 
-const replies = [
+const karpReplies = [
 	'Karp to najlepsza ryba!',
 	'To prawda, karp jest rybą i nikt temu nie zaprzeczy. Nawet maruda Wilu.',
 	'Karp jest rybą!',
 	'Karp to ryba.'
 ]
 
+const gochaReplies = [
+	'Team Gocha!',
+	'LULULULULULULULULULULU',
+	'OHHHHHHHHH KITTTYYYYYYYYYYYY'
+]
+
 function gotMessage(msg) {
 	if (msg.content === '!karp') {
-		const index = Math.floor(Math.random() * replies.length);
-		msg.channel.send(replies[index]);
+		const index = Math.floor(Math.random() * karpReplies.length);
+		msg.channel.send(karpReplies[index]);
 	}
 	else if (msg.content === '!wilu') {
 		msg.channel.send('A któż to przyszedł? Pan maruda? Niszczyciel dobrej zabawy. Pogromca uśmiechów dzieci.');
@@ -44,7 +50,8 @@ function gotMessage(msg) {
 		msg.channel.send('Team Rafał!');
 	}
 	else if (msg.content === '!gocha') {
-		msg.channel.send('Team Gocha!');
+		const index = Math.floor(Math.random() * gochaReplies.length);
+		msg.channel.send(gochaReplies[index]);
 	}
 	else if (msg.content === '!maslo') {
 		msg.channel.send('Team masło!');
