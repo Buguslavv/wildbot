@@ -91,7 +91,7 @@ function gotMessage(msg) {
 			console.log(index);
 			msg.channel.send({files: ['./images/bear.png']});
 		}
-		if (index == facepalmGifs.length + 1) {
+		else if (index == facepalmGifs.length + 1) {
 			console.log(index);
 			msg.channel.send({files: ['./images/triple-face-palm.png']});
 		}
