@@ -87,10 +87,10 @@ function gotMessage(msg) {
 	else if (msg.content === '!facepalm') {
 		const index = Math.floor(Math.random() * (facepalmGifs.length + 2));
 		if (index == facepalmGifs.length + 1) {
-			msg.channel.send({file: ['images/bear.jpg']});
+			msg.channel.send({file: ['./images/bear.jpg']});
 		}
 		if (index == facepalmGifs.length + 2) {
-			msg.channel.send({file: ['images/triple-face-palm.png']});
+			msg.channel.send({file: ['./images/triple-face-palm.png']});
 		}
 		else {
 			msg.channel.send(facepalmGifs[index]);
