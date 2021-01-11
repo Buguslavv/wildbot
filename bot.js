@@ -27,6 +27,14 @@ const gochaReplies = [
 	'OHHHHHHHHH KITTTYYYYYYYYYYYY'
 ]
 
+const facepalmGifs = [
+	'https://tenor.com/udI6.gif',
+	'https://tenor.com/o4u5.gif',
+	'https://tenor.com/Z4Di.gif',
+	'https://tenor.com/EOpu.gif',
+	'https://tenor.com/EOpu.gif'
+]
+
 var pastaCooldown = new Date();
 
 function gotMessage(msg) {
@@ -74,6 +82,18 @@ function gotMessage(msg) {
 				const messages = data.split(';');
 				messages.forEach(message => msg.channel.send(message));
 			});
+		}
+	}
+	else if (msg.content === '!facepalm') {
+		const index = Math.floor(Math.random() * (facepalmGifs.length + 2));
+		if (index == facepalmGifs.length + 1) {
+			msg.channel.send({file: ['images/bear.jpg']});
+		}
+		if (index == facepalmGifs.length + 2) {
+			msg.channel.send({file: ['images/triple-face-palm.png']});
+		}
+		else {
+			msg.channel.send(facepalmGifs[index]);
 		}
 	}
 	console.log(msg.content);
