@@ -89,7 +89,7 @@ function gotMessage(msg) {
 		console.log(index);
 		if (index == facepalmGifs.length) {
 			console.log(index);
-			msg.channel.send({files: ['./images/bear.jpg']});
+			msg.channel.send({files: ['./images/bear.png']});
 		}
 		if (index == facepalmGifs.length + 1) {
 			console.log(index);
