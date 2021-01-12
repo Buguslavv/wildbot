@@ -107,7 +107,7 @@ function gotMessage(msg) {
 		}
 	}
 	else if (msg.content === '!commands') {
-		msg.channel.send(commands.join(', '));
+		msg.channel.send('Mam takie komendy: ' + commands.join(', '));
 	}
 	console.log(msg.content);
 }
