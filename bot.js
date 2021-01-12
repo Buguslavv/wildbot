@@ -63,6 +63,7 @@ function onReady() {
 		console.log(commands);
 		console.log('/////////////////');
 		console.log(commandMessages);
+		commands = commands.sort();
 	});
 }
 
@@ -107,7 +108,7 @@ function gotMessage(msg) {
 		}
 	}
 	else if (msg.content === '!commands') {
-		msg.channel.send('Mam takie komendy: ' + commands.join(', '));
+		msg.channel.send('Mam takie komendy:\n' + commands.join(',\n'));
 	}
 	console.log(msg.content);
 }
