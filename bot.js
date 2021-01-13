@@ -28,7 +28,7 @@ const gochaReplies = [
 const laylaBans = [
 	'Layla DC ban',
 	'Layla dostaje bana za gołąbki!'
-	'Layli skończył się internet we wiaderku i dostała bana 🙁'
+	'Layli skończył się internet we wiaderku i dostała bana :('
 ]
 
 const facepalmGifs = [
