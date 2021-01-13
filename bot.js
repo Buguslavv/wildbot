@@ -10,6 +10,8 @@ client.login(process.env.BOTTOKEN);
 client.on('message', gotMessage);
 client.on('ready', onReady);
 
+const botId = '795751008004210688';
+
 const karpReplies = [
 	'Karp to najlepsza ryba!',
 	'To prawda, karp jest rybą i nikt temu nie zaprzeczy. Nawet maruda Wilu.',
@@ -60,9 +62,6 @@ function onReady() {
 	});
 	
 	readInterface.on('close', function(line) {
-		console.log(commands);
-		console.log('/////////////////');
-		console.log(commandMessages);
 		commands = commands.sort();
 	});
 }
@@ -110,5 +109,43 @@ function gotMessage(msg) {
 	else if (msg.content === '!commands') {
 		msg.channel.send('Mam takie komendy:\n' + commands.join(',\n'));
 	}
+	else if (msg.content === '!pog') {
+		msg.channel.send({files: ['./images/PogFish.png']});
+	}
+	else if (msg.content?.startsWith('!losuj')) {
+		lottery(msg);
+	}
 	console.log(msg.content);
+}
+
+function lottery(msg) {
+	const commandParams = msg.content.split(' ');
+	const userParam = commandParams.length > 1 ? ((isNaN(commandParams[1]) || Number(commandParams[1]) < 1) ? 1 : Number(commandParams[1])) : 1;
+	const timeParam = commandParams.length > 2 ? ((isNaN(commandParams[2]) || Number(commandParams[2]) < 1) ? 60 : Number(commandParams[2])) : 60;
+	
+	const userText = userParam > 1 ? 'Karpików' : 'Karpia'
+	msg.channel.send('Zaczynamy losowanie ' + userParam + ' ' + userText + '! Losowanie kończy się za ' + timeParam + ' sekund. Aby wziąć udział w losowaniu zareaguj :fish: na powyższą wiadomość!');
+	msg.react('🐟');
+	setTimeout(() => { msg.channel.send('Losowanie kończy się za ' + timeParam/2 + ' sekund!') }, timeParam/2*1000);
+	msg.awaitReactions((reaction, user) => reaction.emoji.name === '🐟', { time: timeParam*1000 })
+		.then(collected => {
+			if (collected.get('🐟').count < (userParam + 1)) {
+				msg.channel.send('Niewystarczająca ilość karpików zareagowała na wiadomość 🙁');
+			}
+			else {
+				var selectedUsers = new Array();
+				
+				while (selectedUsers.length < userParam) {
+					var selectedUser = collected.get('🐟').users.cache.randomKey(1);
+					
+					console.log(selectedUser);
+					if (selectedUser != botId) {
+						selectedUsers.push(selectedUser);
+					}
+				}
+				
+				msg.channel.send('Wylosowane Karpiki:\n' + selectedUsers.map(user => '<@' + user + '>').join(',\n'));
+			}
+		})
+		.catch(console.error);
 }

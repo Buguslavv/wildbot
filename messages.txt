@@ -10,3 +10,5 @@
 !aris=Czy ktoś tu ma niedobór przytulania? Aris tu jest żeby wyściskać wszystkie swoje dzieci!
 !pastakarp
 !facepalm
+!pog
+!losuj X Y
