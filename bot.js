@@ -120,15 +120,17 @@ function gotMessage(msg) {
 
 function lottery(msg) {
 	const commandParams = msg.content.split(' ');
-	const userParam = commandParams.length > 1 ? ((isNaN(commandParams[1]) || Number(commandParams[1]) < 1) ? 1 : Number(commandParams[1])) : 1;
-	const timeParam = commandParams.length > 2 ? ((isNaN(commandParams[2]) || Number(commandParams[2]) < 1) ? 60 : Number(commandParams[2])) : 60;
+	const userParam = commandParams.length > 1 ? ((isNaN(commandParams[1]) || Number(commandParams[1]) < 1) ? 1 : Math.round(Number(commandParams[1]))) : 1;
+	const timeParam = commandParams.length > 2 ? ((isNaN(commandParams[2]) || Number(commandParams[2]) < 1) ? 60 : Math.round(Number(commandParams[2]))) : 60;
 	
 	const userText = userParam > 1 ? 'Karpików' : 'Karpia'
-	msg.channel.send('Zaczynamy losowanie ' + userParam + ' ' + userText + '! Losowanie kończy się za ' + timeParam + ' sekund. Aby wziąć udział w losowaniu zareaguj :fish: na powyższą wiadomość!');
+	msg.channel.send('Zaczynamy losowanie ' + userParam + ' ' + userText + '! Losowanie kończy się za ' + secondsTranslator(timeParam) + '. Aby wziąć udział w losowaniu zareaguj :fish: na powyższą wiadomość!');
 	msg.react('🐟');
-	setTimeout(() => { msg.channel.send('Losowanie kończy się za ' + timeParam/2 + ' sekund!') }, timeParam/2*1000);
+	setTimeout(() => { msg.channel.send('Losowanie kończy się za ' + secondsTranslator(Math.round(timeParam/2)) + '!') }, timeParam/2*1000);
 	msg.awaitReactions((reaction, user) => reaction.emoji.name === '🐟', { time: timeParam*1000 })
 		.then(collected => {
+			console.log(userParam + 1);
+			console.log(collected.get('🐟').count);
 			if (collected.get('🐟').count < (userParam + 1)) {
 				msg.channel.send('Niewystarczająca ilość karpików zareagowała na wiadomość 🙁');
 			}
@@ -144,8 +146,20 @@ function lottery(msg) {
 					}
 				}
 				
-				msg.channel.send('Wylosowane Karpiki:\n' + selectedUsers.map(user => '<@' + user + '>').join(',\n'));
+				msg.reply('Twoje wylosowane Karpiki to:\n' + selectedUsers.map(user => '<@' + user + '>').join(',\n'));
 			}
 		})
 		.catch(console.error);
+}
+
+function secondsTranslator(seconds) {
+	if (seconds === 1) {
+		return seconds + ' sekundę';
+	}
+	else if (seconds % 10 < 5 && seconds % 10 > 1) {
+		return seconds + ' sekundy';
+	}
+	else {
+		return seconds + ' sekund';
+	}
 }
