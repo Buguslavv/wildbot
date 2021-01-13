@@ -112,7 +112,7 @@ function gotMessage(msg) {
 	else if (msg.content === '!pog') {
 		msg.channel.send({files: ['./images/PogFish.png']});
 	}
-	else if (msg.content?.startsWith('!losuj')) {
+	else if (msg.content.startsWith('!losuj')) {
 		lottery(msg);
 	}
 	console.log(msg.content);
