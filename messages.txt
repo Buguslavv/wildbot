@@ -1,6 +1,6 @@
 ﻿!karp
 !wilu=A któż to przyszedł? Pan maruda? Niszczyciel dobrej zabawy. Pogromca uśmiechów dzieci.
-!laylaban=Layla dostaje bana za gołąbki!
+!laylaban
 !nagimiban=Nagimi has been permanently banned from this server.
 !myszon=Chowajcie swoje ciasteczka, nadchodzi on! Pożeracz wszystkiego słodkiego i mięsnego.
 !bbo=Szykuj wodę! Nadszedł naczelny nawadniacz dzikiej rodziny.

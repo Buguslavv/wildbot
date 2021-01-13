@@ -25,6 +25,12 @@ const gochaReplies = [
 	'OHHHHHHHHH KITTTYYYYYYYYYYYY'
 ]
 
+const laylaBans = [
+	'Layla DC ban',
+	'Layla dostaje bana za gołąbki!'
+	'Layli skończył się internet we wiaderku i dostała bana 🙁'
+]
+
 const facepalmGifs = [
 	'https://tenor.com/udI6.gif',
 	'https://tenor.com/o4u5.gif',
@@ -79,6 +85,10 @@ function gotMessage(msg) {
 	else if (msg.content === '!gocha') {
 		const index = Math.floor(Math.random() * gochaReplies.length);
 		msg.channel.send(gochaReplies[index]);
+	}
+	else if (msg.content === '!laylaban') {
+		const index = Math.floor(Math.random() * laylaBans.length);
+		msg.channel.send(laylaBans[index]);
 	}
 	else if (msg.content === '!pastakarp') {
 		var pastaTime = new Date();
