@@ -12,3 +12,4 @@
 !facepalm
 !pog
 !losuj X Y
+!dej
