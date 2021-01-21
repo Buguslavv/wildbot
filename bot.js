@@ -28,7 +28,7 @@ const gochaReplies = [
 const laylaBans = [
 	'Layla DC ban',
 	'Layla dostaje bana za gołąbki!',
-	'Layli skończył się internet we wiaderku i dostała bana 🙁'
+	'Layli skończył się internet w wiaderku i dostała bana 🙁'
 ]
 
 const facepalmGifs = [
@@ -121,6 +121,9 @@ function gotMessage(msg) {
 	}
 	else if (msg.content === '!pog') {
 		msg.channel.send({files: ['./images/PogFish.png']});
+	}
+	else if (msg.content === '!dej') {
+		msg.channel.send({files: ['./gifs/dej.gif']});
 	}
 	else if (msg.content.startsWith('!losuj')) {
 		lottery(msg);
