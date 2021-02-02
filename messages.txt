@@ -13,3 +13,4 @@
 !pog
 !losuj X Y
 !dej
+!dobrze=dobrze!
