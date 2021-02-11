@@ -14,3 +14,4 @@
 !losuj X Y
 !dej
 !dobrze=dobrze!
+!myszonban=Myszon poleca swojego najlepszego Łódzkiego dostawcę internetu - Toyę
