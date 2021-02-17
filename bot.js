@@ -127,6 +127,9 @@ function gotMessage(msg) {
 	else if (msg.content === '!dej') {
 		msg.channel.send({files: ['./gifs/dej.gif']});
 	}
+	else if (msg.content === '!hot') {
+		msg.channel.send({files: ['./gifs/hot.gif']});
+	}
 	else if (msg.content.startsWith('!losuj')) {
 		lottery(msg);
 	}
